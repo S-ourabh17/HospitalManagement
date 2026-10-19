@@ -33,5 +33,20 @@ public class Patient {
     @Column(nullable = false)
     private LocalDate dateOfBirth;
 
+    @Column(nullable = false, length = 20)
+    private String phone;
+
+    @Column(unique = true)
+    private String email;
+
+    private String address;
+
+    @Column(length = 5)
+    private String bloodGroup;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+
 
 }
