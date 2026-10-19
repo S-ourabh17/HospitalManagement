@@ -48,5 +48,10 @@ public class Patient {
     private LocalDateTime createdAt;
 
 
+    void onCreate(){
+        this.createdAt = LocalDateTime.now();
+    }
+
+
 
 }
