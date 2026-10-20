@@ -27,7 +27,7 @@ public class PatientService {
 
         Patient patient = new Patient();
         apply(patient, request);
-        return PatientResponse.from(patient);
+        return PatientResponse.from(repository.save(patient));
     }
 
     @Transactional(readOnly = true)
