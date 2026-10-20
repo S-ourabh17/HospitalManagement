@@ -1,6 +1,6 @@
 package com.hospital.hms.entity;
 
-import com.hospital.hms.Gender;
+import com.hospital.hms.enums.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 
