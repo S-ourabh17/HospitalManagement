@@ -45,6 +45,20 @@ public class PatientService {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Patient", id));
     }
 
+    public PatientResponse update(Long id, PatientRequest request){
+        Patient patient = find(id);
+        if(request.email() != null && repository.existsByEmailIgnoreCaseAndIdNot(request.email(), id)){
+            throw new BusinessException("A patient with this email already exists");
+        }
+
+        apply(patient, request);
+        return PatientResponse.from(patient);
+    }
+
+    public void deleteById(Long id){
+        repository.deleteById(id);
+    }
+
 
     private void apply(Patient patient, PatientRequest r){
         patient.setFirstName(r.firstName());
