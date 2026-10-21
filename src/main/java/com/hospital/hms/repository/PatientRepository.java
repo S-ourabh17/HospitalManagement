@@ -1,7 +1,7 @@
 package com.hospital.hms.repository;
 
 import com.hospital.hms.entity.Patient;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Page;                            // Page Contains Smaller chunks instead of Entire Dataset
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
