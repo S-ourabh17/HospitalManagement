@@ -20,7 +20,7 @@ public class AppointmentController {
 
     @PostMapping("/book-session")
     @ResponseStatus(HttpStatus.CREATED)
-    public AppointmentResponse createAppointment(@Valid @RequestBody Dtos.AppointmentRequest request){
+    public AppointmentResponse createAppointment(@Valid @RequestBody AppointmentRequest request){
         return service.bookAppointment(request);
     }
 
