@@ -30,6 +30,14 @@ public class PatientService {
         return PatientResponse.from(repository.save(patient));
     }
 
+    public Page<PatientResponse> search(String name, Pageable pageable){
+        Page<Patient> page =(name== null || name.isBlank())
+                ?repository.findAll(pageable)
+                :repository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(name, name, pageable);
+        return page.map(PatientResponse::from);
+
+    }
+
     @Transactional(readOnly = true)
     public PatientResponse get(Long id) {
         return PatientResponse.from(find(id));
