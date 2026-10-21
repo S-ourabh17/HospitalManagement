@@ -65,6 +65,7 @@ public class PatientService {
         patient.setLastName(r.lastName());
         patient.setGender(r.gender());
         patient.setDateOfBirth(r.dateOfBirth());
+        patient.setPhone(r.phone());
         patient.setEmail(r.email());
         patient.setAddress(r.address());
         patient.setBloodGroup(r.bloodGroup());
