@@ -8,4 +8,6 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
 
     boolean existsByEmailIgnoreCaseAndIdNot(String email, Long id);
 
+    Page<Patient> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(String FirstName, String lastName, Pageable pageable);
+
 }
