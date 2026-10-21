@@ -30,6 +30,7 @@ public class PatientService {
         return PatientResponse.from(repository.save(patient));
     }
 
+    @Transactional(readOnly = true)
     public Page<PatientResponse> search(String name, Pageable pageable){
         Page<Patient> page =(name== null || name.isBlank())
                 ?repository.findAll(pageable)
