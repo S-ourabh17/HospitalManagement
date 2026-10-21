@@ -73,8 +73,8 @@ public final class Dtos {
 
     // -------------------------------Appointment---------------------------
     public record AppointmentRequest(
-            @NotBlank Long patientId,
-            @NotBlank Long doctorId,
+            @NotNull Long patientId,
+            @NotNull Long doctorId,
             @NotNull @Future LocalDateTime appointmentTime,
             @Size(max = 256) String reason
     ){}
