@@ -79,8 +79,8 @@ public final class Dtos {
             @Size(max = 256) String reason
     ){}
 
-
-    public record AppointmentStatusRequest(@NotNull AppointmentStatus status){}
+    public record AppointmentStatusRequest(@NotNull AppointmentStatus appointmentStatus){
+    }
 
     public record AppointmentResponse(Long id, Long patientId, String patientName, Long doctorId, String doctorName, LocalDateTime appointmentTime, AppointmentStatus status, String reason ){
         public static AppointmentResponse from(Appointment appointment){
