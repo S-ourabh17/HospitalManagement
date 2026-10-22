@@ -8,5 +8,7 @@ public interface DoctorRepository extends JpaRepository<Doctor,Long> {
   boolean existsByEmailIgnoreCase(String email);
   List<Doctor> findBySpecializationIgnoreCaseAndActiveTrue(String specialization);
 
+  boolean existByEmailIgnoreCaseAndIdNot(String email, Long id);
+
   List<Doctor> findByActiveTrue();
 }
