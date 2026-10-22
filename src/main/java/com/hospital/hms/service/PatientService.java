@@ -82,6 +82,4 @@ public class PatientService {
         patient.setBloodGroup(r.bloodGroup());
 
     }
-
-
 }
