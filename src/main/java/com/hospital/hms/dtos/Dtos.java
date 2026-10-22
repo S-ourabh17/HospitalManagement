@@ -20,7 +20,7 @@ public final class Dtos {
     public record PatientRequest(
             @NotBlank @Size(max = 60) String firstName,
             @NotBlank @Size(max= 60) String lastName,
-            @NotBlank Gender gender,
+            @NotNull Gender gender,
             @NotNull @Past LocalDate dateOfBirth,
             @NotBlank @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Invalid phone number format. Must match E.164 standard (e.g., +1234567890).") String phone,
             @Email String email,
