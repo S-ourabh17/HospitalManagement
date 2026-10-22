@@ -14,7 +14,8 @@ import com.hospital.hms.repository.AppointmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.hospital.hms.dtos.Dtos.AppointmentResponse;
+
+import java.util.List;
 
 @Service
 @Transactional
