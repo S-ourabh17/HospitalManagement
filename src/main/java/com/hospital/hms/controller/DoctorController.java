@@ -40,7 +40,7 @@ public class DoctorController {
   /*  @PutMapping("/{id}")
     public DoctorResponse update(@PathVariable Long id, @Valid @RequestBody DoctorRequest req) {
         return service.update(id, req);
-    }
+    }*/
 
 
 }
