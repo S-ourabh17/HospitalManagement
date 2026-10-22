@@ -53,6 +53,27 @@ public class AppointmentService {
         return AppointmentResponse.from(find(id));
     }
 
+    @Transactional(readOnly = true)
+    public List<AppointmentResponse> forPatient(Long patientId) {
+        patientService.find(patientId);
+        return appointmentRepository.findByPatientIdOrderByAppointmentTimeDesc(patientId)
+                .stream().map(AppointmentResponse::from).toList();
+    }
+
+    public AppointmentResponse updateAppointmentStatus(Long id, AppointmentStatus newStatus) {
+        Appointment a = find(id);
+        if(a.getStatus() !=  AppointmentStatus.SCHEDULED){
+            throw  new BusinessException("Only SCHEDULED appointments can be changed (current: " + a.getStatus() + ")");
+        }
+
+        if(newStatus == AppointmentStatus.SCHEDULED){
+            throw new BusinessException("Appointment is already scheduled");
+        }
+        a.setStatus(newStatus);
+        return AppointmentResponse.from(a);
+    }
+
+
 
     @Transactional(readOnly = true)
     Appointment find(Long id){
