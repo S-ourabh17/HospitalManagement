@@ -32,5 +32,11 @@ public class AppointmentController {
     }
 
 
+    @PatchMapping("/{id}/status")
+    public AppointmentResponse updateAppointmentStatus(@PathVariable Long id, @Valid @RequestBody AppointmentStatus request){
+        return service.updateAppointmentStatus(id, request);
+    }
+
+
 
 }
