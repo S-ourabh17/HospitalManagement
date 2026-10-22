@@ -1,7 +1,7 @@
 package com.hospital.hms.controller;
 
 
-import com.hospital.hms.dtos.Dtos;
+import com.hospital.hms.dtos.Dtos.AppointmentRequest;
 import com.hospital.hms.dtos.Dtos.AppointmentResponse;
 import com.hospital.hms.service.AppointmentService;
 import jakarta.validation.Valid;
