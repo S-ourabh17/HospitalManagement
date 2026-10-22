@@ -45,6 +45,16 @@ public class DoctorService {
        return Doctors.stream().map(DoctorResponse::from).toList();
     }
 
+    public DoctorResponse update(Long id, DoctorRequest req) {
+        Doctor d = find(id);
+        if (doctorRepository.existByEmailIgnoreCaseAndIdNot(req.email(), id)) {
+            throw new BusinessException("A doctor with this email already exists");
+        }
+        apply(d, req);
+        return DoctorResponse.from(d);
+    }
+
+
 
 
 
