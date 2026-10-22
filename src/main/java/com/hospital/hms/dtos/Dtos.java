@@ -101,4 +101,24 @@ public final class Dtos {
 
 
 
+    //------------------------Billing---------------------------------
+    public record BillResponse(Long id, Long patientId, Long appointmentId, BigDecimal amount,
+                               BillStatus status, String description, LocalDateTime issuedAt,
+                               LocalDateTime paidAt){
+        public static BillResponse from(Bill bill){
+            return new BillResponse(bill.getId(),
+                    bill.getPatient().getId(),
+                    bill.getAppointment() == null ? null: bill.getAppointment().getId(),
+                    bill.getAmount(),
+                    bill.getStatus(),
+                    bill.getDescription(),
+                    bill.getIssuedAt(),
+                    bill.getPaidAt());
+
+        }
+    }
+
+
+
+
 }
