@@ -47,6 +47,7 @@ public class Patient {
     private LocalDateTime createdAt;
 
 
+    @PrePersist
     void onCreate(){
         this.createdAt = LocalDateTime.now();
     }
