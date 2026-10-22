@@ -1,7 +1,4 @@
 package com.hospital.hms.service;
-
-
-import com.hospital.hms.dtos.Dtos;
 import com.hospital.hms.dtos.Dtos.AppointmentResponse;
 import com.hospital.hms.dtos.Dtos.AppointmentRequest;
 import com.hospital.hms.entity.Appointment;
