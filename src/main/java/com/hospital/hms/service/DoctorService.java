@@ -52,7 +52,7 @@ public class DoctorService {
         }
         apply(d, req);
         return DoctorResponse.from(d);
-    }
+    }*/
 
 
 
