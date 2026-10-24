@@ -45,14 +45,25 @@ public class DoctorService {
        return Doctors.stream().map(DoctorResponse::from).toList();
     }
 
-   /* public DoctorResponse update(Long id, DoctorRequest req) {
-        Doctor d = find(id);
-        if (doctorRepository.existByEmailIgnoreCaseAndIdNot(req.email(), id)) {
-            throw new BusinessException("A doctor with this email already exists");
-        }
-        apply(d, req);
-        return DoctorResponse.from(d);
-    }*/
+    public DoctorResponse updateDoctor(Long id, DoctorRequest req) {
+        Doctor doctor = doctorRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Doctor",id));
+
+        doctor.setFirstName(req.firstName());
+        doctor.setLastName(req.lastName());
+
+        doctor.setFirstName(req.firstName());
+        doctor.setLastName(req.lastName());
+        doctor.setSpecialization(req.specialization());
+        doctor.setPhone(req.phone());
+        doctor.setEmail(req.email());
+        doctor.setConsultationFee(req.consultationFee());
+        doctor.setActive(req.active());
+
+
+        return DoctorResponse.from(doctorRepository.save(doctor));
+
+    }
 
 
 
