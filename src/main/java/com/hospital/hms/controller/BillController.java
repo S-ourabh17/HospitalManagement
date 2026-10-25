@@ -7,33 +7,33 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/bills")
+@RequiredArgsConstructor
 public class BillController {
-    private BillService billService;
+    private final BillService bills;
 
-
-    @PostMapping("appointment/{id}")
+    @PostMapping("/appointment/{appointmentId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public BillResponse generate(@PathVariable(name = "id") Long appointmentId){
-        return billService.generateForAppointment(appointmentId);
-    }
+    public BillResponse generateBill(@PathVariable Long appointmentId){
+        return bills.generateForAppointment(appointmentId);
 
-    @GetMapping("{id}")
-    public BillResponse getById(@PathVariable Long id){
-        return billService.getById(id);
     }
 
     @PatchMapping("/{id}/pay")
-    public BillResponse pay(@PathVariable Long id) {
-        return billService.pay(id);
+    public BillResponse payBill(@PathVariable Long id){
+        return bills.pay(id);
+    }
+
+    @GetMapping("/{id}")
+    public BillResponse findBillById(@PathVariable Long id){
+        return bills.getById(id);
     }
 
 
-    @PatchMapping("/{id}/cancel")
-    public BillResponse cancel(@PathVariable Long id) {
-        return billService.cancel(id);
+    @PatchMapping("/id")
+    public BillResponse cancel(@PathVariable Long id){
+        return bills.cancel(id);
     }
 
 }
