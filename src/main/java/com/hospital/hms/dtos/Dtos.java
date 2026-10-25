@@ -4,7 +4,6 @@ import com.hospital.hms.entity.*;
 import com.hospital.hms.enums.AppointmentStatus;
 import com.hospital.hms.enums.BillStatus;
 import com.hospital.hms.enums.Gender;
-import com.hospital.hms.entity.Patient;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
