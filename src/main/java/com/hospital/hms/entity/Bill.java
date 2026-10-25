@@ -20,13 +20,13 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "appointment_id")
+    @JoinColumn(name = "appointment_id", unique = true)
     private Appointment appointment;
 
     @Column(nullable = false, precision = 10, scale = 2)
