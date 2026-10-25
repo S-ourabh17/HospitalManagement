@@ -120,6 +120,39 @@ public final class Dtos {
         }
     }
 
+    //----------------------------MedicalRecord ------------------------------------
+    public record MedicalRecordRequest(
+            @NotNull Long patientId,
+            @NotNull Long doctorId,
+            Long appointmentId,
+            @NotBlank @Size(max = 500) String diagnosis,
+            @Size(max = 2000) String prescription,
+            @Size(max = 2000) String notes){
+
+    }
+
+    public record MedicalRecordResponse(
+            Long id,
+            Long patientId,
+            Long doctorId,
+            Long appointmentId,
+            String diagnosis,
+            String prescription,
+            String notes,
+            LocalDateTime createAt){
+        public static MedicalRecordResponse from(MedicalRecord request){
+            return new MedicalRecordResponse(request.getId(),
+                     request.getPatient().getId(),
+                    request.getDoctor().getId(),
+                    request.getAppointment() == null ? null : request.getAppointment().getId(),
+                    request.getDiagnosis(),
+                    request.getPrescription(),
+                    request.getNotes(),
+                    request.getCreatedAt());
+        }
+    }
+
+
 
 
 
