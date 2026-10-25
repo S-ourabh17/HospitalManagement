@@ -1,8 +1,6 @@
 package com.hospital.hms.dtos;
 
-import com.hospital.hms.entity.Appointment;
-import com.hospital.hms.entity.Bill;
-import com.hospital.hms.entity.Doctor;
+import com.hospital.hms.entity.*;
 import com.hospital.hms.enums.AppointmentStatus;
 import com.hospital.hms.enums.BillStatus;
 import com.hospital.hms.enums.Gender;
